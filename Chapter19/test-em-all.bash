@@ -8,8 +8,10 @@
 #
 #   HOST=localhost PORT=8443 HEALTH_URL=https://localhost:8443 ./test-em-all.bash
 #
-: ${HOST=minikube.me}
-: ${PORT=443}
+#: ${HOST=minikube.me}
+#: ${PORT=443}
+: ${HOST=localhost}
+: ${PORT=32036}
 : ${HEALTH_URL=http://product-composite.hands-on.svc.cluster.local:4004}
 : ${MGM_PORT=4004}
 : ${PROD_ID_REVS_RECS=2}

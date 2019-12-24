@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mkdir microservices
+#mkdir microservices
 cd microservices
 
 spring init \

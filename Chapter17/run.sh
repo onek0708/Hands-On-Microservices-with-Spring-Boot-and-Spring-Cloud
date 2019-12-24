@@ -1,8 +1,8 @@
-#eval $(minikube docker-env)
-#./gradlew build && docker-compose build
-#kubectl create ns hands-on
+eval $(minikube docker-env)
+./gradlew build && docker-compose build
+kubectl create ns hands-on
 
-#kubectl config set-context $(kubectl config current-context) --namespace=hands-on
+kubectl config set-context $(kubectl config current-context) --namespace=hands-on
 
 kubectl delete configmap config-repo-product 
 kubectl delete secret rabbitmq-credentials rabbitmq-server-credentials tls-certificate 
