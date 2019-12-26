@@ -16,7 +16,6 @@ kubectl -n istio-system apply -f kubernetes/istio/setup/kiali-configmap.yml && \
     kubectl -n istio-system delete pod -l app=kiali && 
     kubectl -n istio-system wait --timeout=60s --for=condition=ready pod -l app=kiali
 
-
 export INGRESS_HOST=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
 
 echo "$INGRESS_HOST minikube.me" | sudo tee -a /etc/hosts

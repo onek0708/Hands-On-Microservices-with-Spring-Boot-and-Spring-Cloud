@@ -1,4 +1,4 @@
-minikube start --memory=10240 --cpus=4 --disk-size=30g --kubernetes-version=1.15.0 --vm-driver=virtualbox
+minikube start --memory=20480 --cpus=4 --disk-size=30g --kubernetes-version=1.15.0 --vm-driver=virtualbox
 minikube addons enable ingress
 minikube addons metrics-server
 

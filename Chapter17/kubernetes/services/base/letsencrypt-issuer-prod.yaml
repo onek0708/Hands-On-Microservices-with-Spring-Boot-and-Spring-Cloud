@@ -4,7 +4,7 @@ metadata:
   name: letsencrypt-issuer-prod
 spec:
   acme:
-    email: onek0708@gmail.com
+    email: onek@me.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-issuer-prod-account-key

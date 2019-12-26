@@ -19,8 +19,11 @@ kubectl create secret generic rabbitmq-server-credentials \
     --from-literal=SPRING_RABBITMQ_DEFAULT_PASS=rabbit-pwd-dev \
     --save-config
 
+sudo bach -c "echo $(minikube ip)    minikube.me | teel -a /etc/hosts"
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=minikube.me/O=minikube.me"
 kubectl create secret tls tls-certificate --key ./tls.key --cert ./tls.crt
+
+kubectl apply -k kubernetes/services/overlays/dev
 
 ACCESS_TOKEN=$(curl -k https://writer:secret@minikube.me/oauth/token -d grant_type=password -d username=magnus -d password=password -s | jq .access_token -r)
 
