@@ -49,6 +49,7 @@ api:
         This means that a delete request of a non existing product will return <b>200 Ok</b>.
 
 server.port: 7000
+server.error.include-message: always
 
 ribbon.ServerListRefreshInterval: 5000
 
@@ -83,13 +84,15 @@ resilience4j.retry:
       retryExceptions:
       - org.springframework.web.reactive.function.client.WebClientResponseException$InternalServerError
 
+management.health.circuitbreakers.enabled: true
+
 resilience4j.circuitbreaker:
   backends:
     product:
       registerHealthIndicator: true
       ringBufferSizeInClosedState: 5
       failureRateThreshold: 50
-      waitInterval: 10000
+      waitDurationInOpenState: 10000
       ringBufferSizeInHalfOpenState: 3
       automaticTransitionFromOpenToHalfOpenEnabled: true
       ignoreExceptions:
